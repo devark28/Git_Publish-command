@@ -1,0 +1,16 @@
+#!/bin/bash
+   # file /root/.local/bin/git-publish
+
+   repo_name=${PWD##*/}
+
+   # Create a new repository on GitHub
+   gh repo create $repo_name --public --source=. --remote=origin
+
+   # Initialize git, add all files, commit, and push
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git branch -M main
+   git push -u origin main
+
+   echo "Repository created and pushed successfully!"
